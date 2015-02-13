@@ -1,0 +1,26 @@
+{
+  "name": "express-rest-api",
+  "version": "1.0.0",
+  "description": "learn creating rest api with express.js and mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aredo/express-rest-api.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express-api",
+    "nodejs-api",
+    "mongoodb"
+  ],
+  "author": "hengkiardo - hengki.sihombing@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aredo/express-rest-api/issues"
+  },
+  "homepage": "https://github.com/aredo/express-rest-api"
+}
