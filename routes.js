@@ -60,7 +60,7 @@ Route.delete('/users/:user_id', function (req, res) {
   Users.findByIdAndRemove(userId, function (err, user) {
     if (err) return res.status(500).json(err);
 
-    if (user) return res.status(200).json({status: 'success', 'message' : 'User has deleted'})
+    if (user) return res.status(200).json({status: 'success', 'message': 'User has deleted'})
 
     return res.status(400).json({'status': 'error', 'message': 'User not found!' })
 

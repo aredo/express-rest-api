@@ -48,6 +48,13 @@ app.use('/api', router)
 
 app.use(errorHandler())
 
+app.use(function (req, res, next){
+  var error_results     = {}
+  error_results.message = 'Sorry, that page does not exist'
+  error_results.code    = 34 // Corresponds with an HTTP 404 - the specified resource was not found.
+  return res.status(404).json(error_results)
+})
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address
