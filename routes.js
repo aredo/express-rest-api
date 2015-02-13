@@ -1,23 +1,38 @@
 var Route     = express.Router()
+var Users     = require('./models/users');
 
-// respond with "Hello World!" on the homepage
-Route.get('/user', function (req, res) {
-  res.send('Got e GET request at /api/user');
+Route.get('/users', function (req, res) {
+
+	Users.find(function (err, users) {
+		if (err) return res.status(500).json(err);
+
+		return res.status(200).json(users)
+	});
 })
 
-// accept POST request on the homepage
-Route.post('/user', function (req, res) {
-  res.send('Got a POST request at /api/user');
+Route.post('/users', function (req, res) {
+
+  var data = req.body;
+
+  console.log(data);
+
+  var user = new Users(data);
+
+  user.save(function (err, new_user) {
+    if (err) return res.status(500).json(err);
+
+    return res.status(200).json(new_user)
+
+  });
+
 })
 
-// accept PUT request at /user
-Route.put('/user', function (req, res) {
-  res.send('Got a PUT request at /api/user');
+Route.put('/users', function (req, res) {
+
 })
 
-// accept DELETE request at /user
-Route.delete('/user', function (req, res) {
-  res.send('Got a DELETE request at /api/user');
+Route.delete('/users', function (req, res) {
+
 })
 
 module.exports = Route
