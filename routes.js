@@ -14,8 +14,6 @@ Route.post('/users', function (req, res) {
 
   var data = req.body;
 
-  console.log(data);
-
   var user = new Users(data);
 
   user.save(function (err, new_user) {
@@ -27,11 +25,24 @@ Route.post('/users', function (req, res) {
 
 })
 
-Route.put('/users', function (req, res) {
+Route.get('/users/:user_id', function (req, res) {
+  var userId = req.params.user_id
+
+  Users.findById(userId, function (err, user) {
+      if (err) return res.status(500).json(err);
+
+      if (user) return res.status(200).json(user)
+
+      return res.status(400).json({'status': 'error', 'message': 'User not found!' })
+
+    });
+})
+
+Route.put('/users/:user_id', function (req, res) {
 
 })
 
-Route.delete('/users', function (req, res) {
+Route.delete('/users/:user_id', function (req, res) {
 
 })
 
